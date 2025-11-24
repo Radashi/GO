@@ -1,7 +1,6 @@
 package main
 
 import (
-	"Go/greetings"
 	"fmt"
 	"log"
 	"time"
