@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/pterm/pterm"
 	"os"
 	"os/exec"
 	"time"
@@ -16,6 +17,7 @@ func clearTerminal() {
 func Maps(user string, password int) bool {
 	// Limpieza de la pantalla
 	clearTerminal()
+
 	// Definicion del map y los datos
 	users := make(map[string]map[string]int)
 	users["minerva"] = make(map[string]int)
@@ -37,6 +39,10 @@ func Maps(user string, password int) bool {
 
 func Carta() {
 	clearTerminal()
+
+	// Colores de la terminal
+	primary := pterm.NewStyle(pterm.FgLightBlue, pterm.Bold)
+
 	// Carta
 	cargando := []string{
 		"=============================================]\n",
@@ -59,7 +65,7 @@ func Carta() {
 	for _, linea := range carta {
 		for _, letra := range linea {
 			time.Sleep(200 * time.Millisecond)
-			fmt.Print(string(letra))
+			primary.Print(string(letra))
 		}
 	}
 }
